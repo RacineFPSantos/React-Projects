@@ -26,13 +26,17 @@ button{
 .date-container{
   background: rgb(252, 210, 25);
   min-width: 300px;
-  
+  min-height: 60px;
+
   margin-top: 10px;
   padding: 5px;
 
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .date-dmy{
@@ -53,10 +57,13 @@ button{
 
 .date-month{
   font-size: 20px;
+  text-transform: capitalize;
 }
 
 .date-day-name{
   color: #fff;
+  text-transform: capitalize;
+  margin-right: 5px;
 }
 
 /* Container */
@@ -104,11 +111,9 @@ button{
   margin: 5px;
 }
 
-/*
 .todo-completed{
-  
+  background-color: #000;
 }
-*/
 
 .add-btn{
   display: inline-block;
