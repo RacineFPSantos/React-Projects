@@ -1,26 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Todo from './components/Todo';
 import Date from './components/Date';
 
-const App = () => (
-  <div className="container flex-center">
-    <Date />
+const App = () => {
+  const [todos, setTodos] = useState([]);
 
-    <div className="todos-container flex-center">
-      <Todo />
-      <Todo />
-      <Todo />
-      <Todo />
-      <Todo />
-      <Todo />
-      <Todo />
-    </div>
+  const getData = () => {
+    fetch('http://localhost:3004/todos',
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+      })
+      .then((res) => res.json()).then((data) => {
+        setTodos(data);
+      });
+  };
 
-    <div>
-      <button type="button" className="add-btn">ADD</button>
+  useEffect(() => {
+    getData();
+  }, []);
+
+  return (
+    <div className="container flex-center">
+      <Date />
+
+      <div className="todos-container flex-center">
+        {todos.map((todo) => <Todo key={todo.id} todo={todo} />)}
+      </div>
+
+      <div>
+        <button type="button" className="add-btn">ADD</button>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default App;
