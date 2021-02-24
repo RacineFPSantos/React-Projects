@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-import Todo from './components/Todo';
-import Date from './components/Date';
+import Header from '../components/Header';
+import Date from '../components/Date';
+import Todo from '../components/Todo';
 
 const App = () => {
   const [todos, setTodos] = useState([]);
@@ -24,17 +25,20 @@ const App = () => {
   }, []);
 
   return (
-    <div className="container flex-center">
-      <Date />
+    <>
+      <Header />
+      <div className="container flex-center">
+        <Date />
 
-      <div className="todos-container flex-center">
-        {todos.map((todo) => <Todo key={todo.id} todo={todo} />)}
-      </div>
+        <div className="todos-container flex-center">
+          {todos.map((todo) => <Todo key={todo.id} todo={todo} />)}
+        </div>
 
-      <div>
-        <button type="button" className="add-btn">ADD</button>
+        <div>
+          <button type="button" className="add-btn">ADD</button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

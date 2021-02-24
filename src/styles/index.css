@@ -1,23 +1,77 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
+/* Reset Styles */
+
 *, ::after, ::before{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
+a, :hover, :focus, :active{ 
+  text-decoration: none;  
+  color: inherit;
+}
+
+ol, ul, li{
+  list-style: none;
+}
+
+button{
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+body{
   margin: 0;
   font-family: 'Lato', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-button{
-  border: none;
-  text-decoration: none;
+header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 10%;
 }
 
+/* Header-Nav */
+
+.logo{    
+  cursor: pointer;
+}
+
+.nav-links li {
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.nav-links li {
+  transition: all 0.3s ease 0s;
+}
+
+.nav-links li a:hover {
+  color: #0088a9;
+}
+
+.contact-btn{
+  padding: 9px 25px;
+  background-color: rgba(252, 210, 25, 1);
+  border-radius: 50px;
+
+  color: #fff;
+
+  transition: all 0.3s ease 0s;
+}
+
+.contact-btn:hover {
+  background-color: rgba(252, 210, 25, 0.8);
+
+}
+
+/* Main-Container */
 .container{
   width: 100vw;
   flex-direction: column;
@@ -67,6 +121,7 @@ button{
 }
 
 /* Container */
+
 .todos-container{
   max-width: 300px;
   flex-direction: column;
@@ -83,14 +138,8 @@ button{
   margin: 5px 0;
 }
 
-.space-between{
-  display: flex;
-  justify-content: start;
-  align-items: center;
-}
-
 .todo-type{
-  width: 5px;
+  min-width: 5px;
   height: 50px;
   background-color: greenyellow;
 }
@@ -120,7 +169,7 @@ button{
   text-align: center;
   padding: 10px 50px;
 
-  background-color: rgb(252, 210, 25);
+  background-color: rgba(252, 210, 25, 1);
   color: white;
   font-size: 16px;
 
@@ -130,7 +179,20 @@ button{
 }
 
 .add-btn:hover{
-  background-color: rgb(230, 203, 84);
+  background-color: rgba(252, 210, 25, 0.8);
+}
+
+/* Layout */
+.todo-for-layout{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.header-for-layout{
+  display: flex;
+  justify-content: start;
+  align-items: center;
 }
 
 /* d: flex - jc: center - ai: center */

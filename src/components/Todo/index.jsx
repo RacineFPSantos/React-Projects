@@ -1,15 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const index = ({ todo }) => {
-  const { title, description } = todo;
+const Todo = ({ todo }) => {
+  const { title, description, completed } = todo;
 
-  const isChecked = () => {
-    console.log(`${title} is completed`);
-  };
+  const [check, setCheck] = useState(completed);
 
   return (
     <div className="todo">
-      <div className="space-between">
+      <div className="todo-for-layout">
         <div className="todo-type" />
         <div className="todo-info">
           <p className="todo-title">{title}</p>
@@ -19,10 +17,11 @@ const index = ({ todo }) => {
       <input
         type="checkbox"
         className="todo-checkbox"
-        onChange={() => isChecked()}
+        checked={check}
+        onChange={() => setCheck(!check)}
       />
     </div>
   );
 };
 
-export default index;
+export default Todo;
